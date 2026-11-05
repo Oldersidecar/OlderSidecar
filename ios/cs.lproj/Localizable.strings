@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "Připoj iPad kabelem k Macu a na Macu spusť Older Sidecar.";
+"Connected, waiting for the picture from the Mac…" = "Připojeno, čekám na obraz z Macu…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Older Sidecar na Macu potřebuje povolení Nahrávání obrazovky. Povol ho v okně průvodce na Macu.";
+"The Mac can't capture its screen right now." = "Mac teď nemůže snímat obrazovku.";
+"The Mac's screen is asleep. Tap to wake it up." = "Obrazovka Macu spí. Ťukni a probudí se.";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "Mac spí. Probuď ho a obraz se sám vrátí.";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "Mac přestal odpovídat. Možná spí – probuď ho a obraz se sám vrátí.";
+"What would you like to do?" = "Co chceš dělat?";
+"Screen only" = "Jen obrazovka";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Uvidíš obrazovku Macu. Ťuknutí nic nedělá, dvěma prsty zvětšíš.";
+"Control the Mac" = "Ovládat Mac";
+"The iPad becomes a trackpad, keyboard and music remote." = "iPad bude touchpad, klávesnice a ovladač hudby.";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "Dva prsty = zvětšení  ·  jeden prst = posun zvětšeného obrazu";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "Jeden prst = kurzor  ·  ťuk = klik  ·  dva prsty = posouvání  ·  ťuk dvěma prsty = pravé tlačítko  ·  dvojité ťuknutí a tah = přetažení";
+"Connected – the trackpad controls the Mac." = "Připojeno – touchpadem ovládáš Mac.";
+"Language" = "Jazyk";
+"Language: %@" = "Jazyk: %@";
+"Automatic (iPad language)" = "Automaticky (jazyk iPadu)";

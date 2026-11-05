@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "Підключіть iPad до Mac кабелем USB і відкрийте Older Sidecar на Mac.";
+"Connected, waiting for the picture from the Mac…" = "Підключено, очікування зображення з Mac…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Older Sidecar на Mac потрібен дозвіл «Запис екрана». Дозвольте його у вікні налаштування на Mac.";
+"The Mac can't capture its screen right now." = "Mac зараз не може записувати екран.";
+"The Mac's screen is asleep. Tap to wake it up." = "Екран Mac у режимі сну. Торкніться, щоб розбудити.";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "Mac у режимі сну. Розбудіть його, і зображення повернеться саме.";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "Mac перестав відповідати. Можливо, він спить – розбудіть його, і зображення повернеться саме.";
+"What would you like to do?" = "Що ви хочете зробити?";
+"Screen only" = "Лише екран";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Дивіться на екран Mac. Дотики нічого не роблять; розведіть два пальці, щоб збільшити.";
+"Control the Mac" = "Керувати Mac";
+"The iPad becomes a trackpad, keyboard and music remote." = "iPad стане трекпадом, клавіатурою та пультом для музики.";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "Два пальці = масштаб  ·  один палець = зсув збільшеного зображення";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "Один палець = вказівник  ·  дотик = клацання  ·  два пальці = прокручування  ·  дотик двома пальцями = правий клік  ·  подвійний дотик і перетягування = перетягування";
+"Connected – the trackpad controls the Mac." = "Підключено – трекпад керує Mac.";
+"Language" = "Мова";
+"Language: %@" = "Мова: %@";
+"Automatic (iPad language)" = "Автоматично (мова iPad)";

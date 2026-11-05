@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "USBケーブルでiPadをMacに接続し、MacでOlder Sidecarを開いてください。";
+"Connected, waiting for the picture from the Mac…" = "接続しました。Macからの画像を待っています…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "MacのOlder Sidecarには“画面収録”の許可が必要です。Macの設定アシスタントで許可してください。";
+"The Mac can't capture its screen right now." = "Macは現在画面を取り込めません。";
+"The Mac's screen is asleep. Tap to wake it up." = "Macの画面はスリープ中です。タップすると復帰します。";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "Macはスリープ中です。復帰させると画面が自動的に戻ります。";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "Macが応答しなくなりました。スリープ中かもしれません。復帰させると画面が自動的に戻ります。";
+"What would you like to do?" = "何をしますか？";
+"Screen only" = "画面のみ";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Macの画面を表示します。タップしても何も起きません。2本指で拡大できます。";
+"Control the Mac" = "Macを操作";
+"The iPad becomes a trackpad, keyboard and music remote." = "iPadがトラックパッド、キーボード、音楽リモコンになります。";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "2本指 = ズーム  ·  1本指 = 拡大した画面を移動";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "1本指 = ポインタ  ·  タップ = クリック  ·  2本指 = スクロール  ·  2本指でタップ = 右クリック  ·  ダブルタップしてドラッグ = ドラッグ";
+"Connected – the trackpad controls the Mac." = "接続しました – トラックパッドでMacを操作できます。";
+"Language" = "言語";
+"Language: %@" = "言語: %@";
+"Automatic (iPad language)" = "自動（iPadの言語）";

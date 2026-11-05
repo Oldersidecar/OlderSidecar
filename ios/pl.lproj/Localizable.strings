@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "Podłącz iPada do Maca kablem USB i uruchom Older Sidecar na Macu.";
+"Connected, waiting for the picture from the Mac…" = "Połączono, czekam na obraz z Maca…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Older Sidecar na Macu potrzebuje uprawnienia Nagrywanie ekranu. Zezwól na nie w oknie konfiguracji na Macu.";
+"The Mac can't capture its screen right now." = "Mac nie może teraz przechwytywać ekranu.";
+"The Mac's screen is asleep. Tap to wake it up." = "Ekran Maca jest uśpiony. Stuknij, aby go wybudzić.";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "Mac jest uśpiony. Wybudź go, a obraz wróci sam.";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "Mac przestał odpowiadać. Może jest uśpiony – wybudź go, a obraz wróci sam.";
+"What would you like to do?" = "Co chcesz zrobić?";
+"Screen only" = "Tylko ekran";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Zobaczysz ekran Maca. Stuknięcie nic nie robi, dwoma palcami powiększysz.";
+"Control the Mac" = "Steruj Makiem";
+"The iPad becomes a trackpad, keyboard and music remote." = "iPad stanie się gładzikiem, klawiaturą i pilotem do muzyki.";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "Dwa palce = powiększenie  ·  jeden palec = przesuwanie powiększenia";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "Jeden palec = kursor  ·  stuknięcie = klik  ·  dwa palce = przewijanie  ·  stuknięcie dwoma palcami = prawy przycisk  ·  dwa stuknięcia i przeciągnięcie = przeciąganie";
+"Connected – the trackpad controls the Mac." = "Połączono – gładzikiem sterujesz Makiem.";
+"Language" = "Język";
+"Language: %@" = "Język: %@";
+"Automatic (iPad language)" = "Automatycznie (język iPada)";

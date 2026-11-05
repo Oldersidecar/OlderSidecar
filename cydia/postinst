@@ -1,0 +1,4 @@
+#!/bin/sh
+# Ikona aplikace se na plose objevi az po obnoveni seznamu aplikaci (uicache musi bezet jako mobile)
+su mobile -c uicache 2>/dev/null || uicache 2>/dev/null
+exit 0

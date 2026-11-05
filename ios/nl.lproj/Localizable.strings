@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "Verbind de iPad met een USB-kabel met je Mac en open Older Sidecar op de Mac.";
+"Connected, waiting for the picture from the Mac…" = "Verbonden, wachten op het beeld van de Mac…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Older Sidecar op de Mac heeft de toestemming Schermopname nodig. Sta die toe in het configuratievenster op de Mac.";
+"The Mac can't capture its screen right now." = "De Mac kan zijn scherm nu niet opnemen.";
+"The Mac's screen is asleep. Tap to wake it up." = "Het scherm van de Mac slaapt. Tik om het te wekken.";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "De Mac slaapt. Wek hem en het beeld komt vanzelf terug.";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "De Mac reageert niet meer. Misschien slaapt hij – wek hem en het beeld komt vanzelf terug.";
+"What would you like to do?" = "Wat wil je doen?";
+"Screen only" = "Alleen scherm";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Bekijk het scherm van de Mac. Tikken doet niets; spreid twee vingers om te zoomen.";
+"Control the Mac" = "Mac bedienen";
+"The iPad becomes a trackpad, keyboard and music remote." = "De iPad wordt trackpad, toetsenbord en muziekafstandsbediening.";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "Twee vingers = zoomen  ·  één vinger = vergroot beeld verschuiven";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "Eén vinger = aanwijzer  ·  tik = klik  ·  twee vingers = scrollen  ·  tik met twee vingers = rechtsklik  ·  dubbeltik en sleep = slepen";
+"Connected – the trackpad controls the Mac." = "Verbonden – met het trackpad bedien je de Mac.";
+"Language" = "Taal";
+"Language: %@" = "Taal: %@";
+"Automatic (iPad language)" = "Automatisch (taal van iPad)";

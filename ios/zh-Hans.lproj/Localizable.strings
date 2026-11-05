@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "用 USB 线将 iPad 连接到 Mac，并在 Mac 上打开 Older Sidecar。";
+"Connected, waiting for the picture from the Mac…" = "已连接，正在等待来自 Mac 的画面…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Mac 上的 Older Sidecar 需要“屏幕录制”权限。请在 Mac 上的设置助理中允许。";
+"The Mac can't capture its screen right now." = "Mac 目前无法捕获屏幕。";
+"The Mac's screen is asleep. Tap to wake it up." = "Mac 屏幕正在睡眠。轻点即可唤醒。";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "Mac 正在睡眠。唤醒它后，画面会自动恢复。";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "Mac 已停止响应，可能正在睡眠。唤醒它后，画面会自动恢复。";
+"What would you like to do?" = "你想做什么？";
+"Screen only" = "仅屏幕";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "查看 Mac 屏幕。轻点不会有任何操作，双指张开可放大。";
+"Control the Mac" = "控制 Mac";
+"The iPad becomes a trackpad, keyboard and music remote." = "iPad 将变成触控板、键盘和音乐遥控器。";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "双指 = 缩放  ·  单指 = 移动放大的画面";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "单指 = 指针  ·  轻点 = 点按  ·  双指 = 滚动  ·  双指轻点 = 右键  ·  轻点两下并拖移 = 拖移";
+"Connected – the trackpad controls the Mac." = "已连接 – 用触控板控制 Mac。";
+"Language" = "语言";
+"Language: %@" = "语言: %@";
+"Automatic (iPad language)" = "自动（iPad 语言）";

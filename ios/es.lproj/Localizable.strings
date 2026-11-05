@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "Conecta el iPad a tu Mac con un cable USB y abre Older Sidecar en el Mac.";
+"Connected, waiting for the picture from the Mac…" = "Conectado, esperando la imagen del Mac…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Older Sidecar en el Mac necesita el permiso de Grabación de pantalla. Permítelo en la ventana de configuración del Mac.";
+"The Mac can't capture its screen right now." = "El Mac no puede capturar su pantalla ahora mismo.";
+"The Mac's screen is asleep. Tap to wake it up." = "La pantalla del Mac está en reposo. Toca para activarla.";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "El Mac está en reposo. Actívalo y la imagen volverá sola.";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "El Mac ha dejado de responder. Puede que esté en reposo – actívalo y la imagen volverá sola.";
+"What would you like to do?" = "¿Qué quieres hacer?";
+"Screen only" = "Solo pantalla";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Mira la pantalla del Mac. Tocar no hace nada; separa dos dedos para ampliar.";
+"Control the Mac" = "Controlar el Mac";
+"The iPad becomes a trackpad, keyboard and music remote." = "El iPad se convierte en trackpad, teclado y mando de música.";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "Dos dedos = zoom  ·  un dedo = mover la imagen ampliada";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "Un dedo = puntero  ·  toque = clic  ·  dos dedos = desplazar  ·  toque con dos dedos = clic derecho  ·  doble toque y arrastrar = arrastrar";
+"Connected – the trackpad controls the Mac." = "Conectado – el trackpad controla el Mac.";
+"Language" = "Idioma";
+"Language: %@" = "Idioma: %@";
+"Automatic (iPad language)" = "Automático (idioma del iPad)";

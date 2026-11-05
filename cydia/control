@@ -1,0 +1,9 @@
+Package: com.oldersidecar
+Name: Older Sidecar
+Version: @VERZE@
+Architecture: iphoneos-arm
+Description: Mirror your Mac's screen to an old iPad over a USB cable. Tap to click. Needs the free Older Sidecar app on the Mac.
+Maintainer: Older Sidecar
+Author: Older Sidecar
+Section: Utilities
+Depends: firmware (>= 6.0), uikittools

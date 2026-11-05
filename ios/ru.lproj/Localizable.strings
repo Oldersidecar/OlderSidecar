@@ -1,0 +1,18 @@
+"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac." = "Подключите iPad к Mac кабелем USB и откройте Older Sidecar на Mac.";
+"Connected, waiting for the picture from the Mac…" = "Подключено, ожидание изображения с Mac…";
+"Older Sidecar on the Mac needs the Screen Recording permission. Allow it in the setup window on the Mac." = "Older Sidecar на Mac нужно разрешение «Запись экрана». Разрешите его в окне настройки на Mac.";
+"The Mac can't capture its screen right now." = "Mac сейчас не может записывать экран.";
+"The Mac's screen is asleep. Tap to wake it up." = "Экран Mac в режиме сна. Коснитесь, чтобы разбудить.";
+"The Mac is asleep. Wake it up and the picture will come back by itself." = "Mac в режиме сна. Разбудите его, и изображение вернётся само.";
+"The Mac stopped responding. It may be asleep – wake it up and the picture will come back by itself." = "Mac перестал отвечать. Возможно, он спит – разбудите его, и изображение вернётся само.";
+"What would you like to do?" = "Что вы хотите сделать?";
+"Screen only" = "Только экран";
+"Watch the Mac's screen. Tapping does nothing; spread two fingers to zoom." = "Смотрите на экран Mac. Касания ничего не делают; разведите два пальца, чтобы увеличить.";
+"Control the Mac" = "Управлять Mac";
+"The iPad becomes a trackpad, keyboard and music remote." = "iPad станет трекпадом, клавиатурой и пультом для музыки.";
+"Two fingers = zoom  ·  one finger = move the zoomed picture" = "Два пальца = масштаб  ·  один палец = сдвиг увеличенного изображения";
+"One finger = pointer  ·  tap = click  ·  two fingers = scroll  ·  two-finger tap = right click  ·  double tap and drag = drag" = "Один палец = указатель  ·  касание = щелчок  ·  два пальца = прокрутка  ·  касание двумя пальцами = правый щелчок  ·  двойное касание и перетаскивание = перетаскивание";
+"Connected – the trackpad controls the Mac." = "Подключено – трекпад управляет Mac.";
+"Language" = "Язык";
+"Language: %@" = "Язык: %@";
+"Automatic (iPad language)" = "Автоматически (язык iPad)";
