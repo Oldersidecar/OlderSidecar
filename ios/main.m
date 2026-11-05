@@ -111,10 +111,28 @@ static NSString *NapisPripoj(void) {
     return KLIC(@"Connect the iPad to your Mac with a USB cable and open Older Sidecar on the Mac.");
 }
 
+// iOS 7–10: plochy styl (bile plochy, modre znacky, bez lesku a stinu). iOS 6: skeuomorfismus.
+static BOOL Novy(void) {
+    static int novy = -1;
+    if (novy < 0) novy = [[UIDevice currentDevice].systemVersion floatValue] >= 7;
+    return novy;
+}
+#define MODRA [UIColor colorWithRed:0 green:0.478 blue:1 alpha:1]
+#define SEDY_TEXT [UIColor colorWithRed:0.43 green:0.43 blue:0.45 alpha:1]
+#define POZADI [UIColor colorWithRed:0.937 green:0.937 blue:0.957 alpha:1]
+#define LINKA [UIColor colorWithRed:0.78 green:0.78 blue:0.80 alpha:1]
+
 static UILabel *VytlacenyNapis(CGFloat velikost, BOOL tucne, UIColor *barva) {
     UILabel *n = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
     n.backgroundColor = [UIColor clearColor];
     n.textColor = barva;
+    if (Novy()) { // ploche: cerny nadpis, sedy popis, bez stinu
+        n.textColor = tucne ? [UIColor blackColor] : SEDY_TEXT;
+        n.font = tucne ? [UIFont boldSystemFontOfSize:velikost] : [UIFont systemFontOfSize:velikost];
+        n.textAlignment = NSTextAlignmentCenter;
+        n.numberOfLines = 0;
+        return n;
+    }
     n.shadowColor = [UIColor colorWithWhite:0 alpha:0.85]; // tmavy stin nad pismem = vytlaceno jako v iOS 6
     n.shadowOffset = CGSizeMake(0, -1);
     n.font = tucne ? [UIFont boldSystemFontOfSize:velikost] : [UIFont systemFontOfSize:velikost];
@@ -131,6 +149,13 @@ static UILabel *VytlacenyNapis(CGFloat velikost, BOOL tucne, UIColor *barva) {
 - (void)drawRect:(CGRect)oblast {
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = self.bounds;
+    if (Novy()) { // svetla lista s tenkou linkou dole jako v iOS 7
+        CGContextSetRGBFillColor(c, 0.97, 0.97, 0.97, 1);
+        CGContextFillRect(c, r);
+        [LINKA setFill];
+        CGContextFillRect(c, CGRectMake(0, r.size.height - 0.5, r.size.width, 0.5));
+        return;
+    }
     CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
     CGFloat barvy[] = { 0.40, 0.41, 0.43, 1,  0.19, 0.20, 0.21, 1,  0.09, 0.09, 0.10, 1,  0.03, 0.03, 0.04, 1 };
     CGFloat mista[] = { 0, 0.5, 0.5, 1 };
@@ -334,6 +359,20 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
 - (void)drawRect:(CGRect)oblast {
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = CGRectInset(self.bounds, 3, 5);
+    if (Novy()) { // jen modra znacka; samostatne tlacitko (nad obrazem Macu) ma bily podklad
+        UIBezierPath *tvar = [UIBezierPath bezierPathWithRoundedRect:r cornerRadius:8];
+        BOOL samo = ![self.superview isKindOfClass:NSClassFromString(@"OSTouchBar")];
+        if (samo || self.highlighted) {
+            [(self.highlighted ? [UIColor colorWithWhite:0.85 alpha:1] : [UIColor colorWithWhite:1 alpha:0.94]) setFill];
+            [tvar fill];
+        }
+        if (samo) { [LINKA setStroke]; tvar.lineWidth = 0.5; [tvar stroke]; }
+        [MODRA setFill];
+        [MODRA setStroke];
+        CGFloat s = MIN(r.size.width, r.size.height) * 0.56;
+        KresliZnacku(c, self.znacka, CGRectMake(CGRectGetMidX(r) - s / 2, CGRectGetMidY(r) - s / 2, s, s));
+        return;
+    }
     [[UIColor colorWithWhite:1 alpha:0.12] setFill]; // svetla hrana pod tlacitkem, je zapustene do listy
     [[UIBezierPath bezierPathWithRoundedRect:CGRectOffset(r, 0, 1) cornerRadius:6] fill];
     UIBezierPath *tvar = [UIBezierPath bezierPathWithRoundedRect:r cornerRadius:6];
@@ -373,6 +412,17 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = CGRectInset(self.bounds, 3, 3);
     r.size.height -= 2;
+    if (Novy()) { // bila klavesa jako klavesnice iOS 7; zapnuty modifikator je modry
+        [[UIColor colorWithWhite:0.53 alpha:1] setFill];
+        [[UIBezierPath bezierPathWithRoundedRect:CGRectOffset(r, 0, 1) cornerRadius:6] fill];
+        [(self.zapnuto ? MODRA : self.highlighted ? [UIColor colorWithWhite:0.82 alpha:1] : [UIColor whiteColor]) setFill];
+        [[UIBezierPath bezierPathWithRoundedRect:r cornerRadius:6] fill];
+        UIColor *popis = self.zapnuto ? [UIColor whiteColor] : [UIColor blackColor];
+        [popis setFill];
+        [popis setStroke];
+        [self popisV:r];
+        return;
+    }
     if (self.highlighted) r = CGRectOffset(r, 0, 1); // stisknuta klavesa jde dolu
     [[UIColor colorWithWhite:0 alpha:0.35] setFill];
     [[UIBezierPath bezierPathWithRoundedRect:CGRectOffset(r, 0, self.highlighted ? 1 : 2) cornerRadius:7] fill];
@@ -398,6 +448,12 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
     [[UIColor colorWithWhite:0.26 alpha:1] setFill];
     [[UIColor colorWithWhite:0.26 alpha:1] setStroke];
     CGContextSetShadowWithColor(c, CGSizeMake(0, 1), 0, [UIColor colorWithWhite:1 alpha:0.9].CGColor);
+    [self popisV:r];
+}
+
+// Znacka, nebo symbol (a slovo pod nim) – barvu nastavi volajici
+- (void)popisV:(CGRect)r {
+    CGContextRef c = UIGraphicsGetCurrentContext();
     if (self.znacka >= 0) {
         CGFloat s = MIN(r.size.width, r.size.height) * 0.42;
         KresliZnacku(c, self.znacka, CGRectMake(CGRectGetMidX(r) - s / 2, CGRectGetMidY(r) - s / 2, s, s));
@@ -431,6 +487,14 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
 - (void)drawRect:(CGRect)oblast {
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = CGRectInset(self.bounds, 3, 4);
+    if (Novy()) { // bile tlacitko s modrym textem, vybrane je cele modre
+        [(self.vybrane ? MODRA : self.highlighted ? [UIColor colorWithWhite:0.85 alpha:1] : [UIColor whiteColor]) setFill];
+        [[UIBezierPath bezierPathWithRoundedRect:r cornerRadius:10] fill];
+        [(self.vybrane ? [UIColor whiteColor] : MODRA) setFill];
+        [self.nadpis drawInRect:CGRectMake(r.origin.x + 8, CGRectGetMidY(r) - 11, r.size.width - 16, 24)
+                       withFont:[UIFont systemFontOfSize:17] lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
+        return;
+    }
     [[UIColor colorWithWhite:1 alpha:0.12] setFill];
     [[UIBezierPath bezierPathWithRoundedRect:CGRectOffset(r, 0, 1) cornerRadius:10] fill];
     UIBezierPath *tvar = [UIBezierPath bezierPathWithRoundedRect:r cornerRadius:10];
@@ -469,6 +533,20 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
 - (void)drawRect:(CGRect)oblast {
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = CGRectInset(self.bounds, 10, 10);
+    if (Novy()) { // bila karta, modra znacka, cerny nadpis, sedy popis
+        [(self.highlighted ? [UIColor colorWithWhite:0.88 alpha:1] : [UIColor whiteColor]) setFill];
+        [[UIBezierPath bezierPathWithRoundedRect:r cornerRadius:14] fill];
+        [MODRA setFill];
+        [MODRA setStroke];
+        KresliZnacku(c, self.znacka, CGRectMake(CGRectGetMidX(r) - 52, r.origin.y + 26, 104, 92));
+        [[UIColor blackColor] setFill];
+        [self.nadpis drawInRect:CGRectMake(r.origin.x + 12, r.origin.y + 134, r.size.width - 24, 34)
+                       withFont:[UIFont systemFontOfSize:26] lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
+        [SEDY_TEXT setFill];
+        [self.popis drawInRect:CGRectMake(r.origin.x + 22, r.origin.y + 176, r.size.width - 44, r.size.height - 182)
+                      withFont:[UIFont systemFontOfSize:15] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
+        return;
+    }
     UIBezierPath *tvar = [UIBezierPath bezierPathWithRoundedRect:r cornerRadius:18];
     CGContextSaveGState(c);
     CGContextSetShadowWithColor(c, CGSizeMake(0, 5), 14, [UIColor colorWithWhite:0 alpha:0.75].CGColor);
@@ -519,6 +597,15 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = CGRectInset(self.bounds, 1, 1);
     r.size.height -= 1;
+    if (Novy()) { // bily panel s tenkym okrajem
+        UIBezierPath *panel = [UIBezierPath bezierPathWithRoundedRect:r cornerRadius:12];
+        [[UIColor whiteColor] setFill];
+        [panel fill];
+        [LINKA setStroke];
+        panel.lineWidth = 0.5;
+        [panel stroke];
+        return;
+    }
     [[UIColor colorWithWhite:1 alpha:0.55] setFill]; // svetla hrana pod listou, je do hliniku zapustena
     [[UIBezierPath bezierPathWithRoundedRect:CGRectOffset(r, 0, 1) cornerRadius:12] fill];
     UIBezierPath *tvar = [UIBezierPath bezierPathWithRoundedRect:r cornerRadius:12];
@@ -549,6 +636,18 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
 - (void)drawRect:(CGRect)oblast {
     CGContextRef c = UIGraphicsGetCurrentContext();
     CGRect r = self.bounds;
+    if (Novy()) { // svetle sede pozadi a bily touchpad
+        [POZADI setFill];
+        UIRectFill(r);
+        if (CGRectIsEmpty(self.touchpad)) return;
+        UIBezierPath *plocha = [UIBezierPath bezierPathWithRoundedRect:self.touchpad cornerRadius:16];
+        [[UIColor whiteColor] setFill];
+        [plocha fill];
+        [LINKA setStroke];
+        plocha.lineWidth = 0.5;
+        [plocha stroke];
+        return;
+    }
     [[UIColor colorWithPatternImage:[UIImage imageNamed:@"Hlinik.png"]] setFill];
     UIRectFill(r);
     CGFloat svetlo[] = { 1, 1, 1, 0.22,  1, 1, 1, 0,  0, 0, 0, 0.14 };
@@ -576,6 +675,7 @@ static void Prechod(CGContextRef c, CGRect r, const CGFloat *barvy, const CGFloa
 // Napis vyryty do hliniku: tmavy, se svetlym odleskem pod pismem
 static UILabel *VyrytyNapis(CGFloat velikost, BOOL tucne) {
     UILabel *n = VytlacenyNapis(velikost, tucne, [UIColor colorWithRed:0.32 green:0.33 blue:0.36 alpha:1]);
+    if (Novy()) return n;
     n.shadowColor = [UIColor colorWithWhite:1 alpha:0.75];
     n.shadowOffset = CGSizeMake(0, 1);
     return n;
@@ -613,6 +713,40 @@ static NSString *NazevModelu(void) {
     else if (hlavni == 5) nazev = vedlejsi <= 2 ? @"iPad mini 4" : @"iPad Air 2";
     NSString *kod = [NSString stringWithUTF8String:stroj];
     return nazev ?: [NSString stringWithFormat:@"%@ (%@)", [UIDevice currentDevice].model, kod];
+}
+
+// Plochy obrazek pro iOS 7–10 misto sajdkary: monitor Macu a iPad spojene modrym kabelem
+static UIImage *PlochyObrazek(void) {
+    CGSize v = CGSizeMake(520, 372);
+    UIGraphicsBeginImageContextWithOptions(v, NO, 0);
+    UIColor *obrys = [UIColor colorWithWhite:0.22 alpha:1];
+    UIColor *displej = [UIColor colorWithRed:0 green:0.478 blue:1 alpha:0.14];
+    // monitor a stojan
+    CGRect monitor = CGRectMake(24, 40, 300, 200);
+    UIBezierPath *m = [UIBezierPath bezierPathWithRoundedRect:monitor cornerRadius:14];
+    [displej setFill]; [m fill];
+    [obrys setStroke]; m.lineWidth = 7; [m stroke];
+    UIBezierPath *stojan = [UIBezierPath bezierPath];
+    [stojan moveToPoint:CGPointMake(152, 244)]; [stojan addLineToPoint:CGPointMake(140, 296)];
+    [stojan moveToPoint:CGPointMake(196, 244)]; [stojan addLineToPoint:CGPointMake(208, 296)];
+    [stojan moveToPoint:CGPointMake(116, 300)]; [stojan addLineToPoint:CGPointMake(232, 300)];
+    stojan.lineWidth = 7; stojan.lineCapStyle = kCGLineCapRound; [stojan stroke];
+    // iPad
+    CGRect ipad = CGRectMake(370, 104, 126, 172);
+    UIBezierPath *i = [UIBezierPath bezierPathWithRoundedRect:ipad cornerRadius:16];
+    [displej setFill]; [[UIBezierPath bezierPathWithRect:CGRectInset(ipad, 12, 22)] fill];
+    i.lineWidth = 7; [i stroke];
+    [obrys setFill];
+    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(CGRectGetMidX(ipad) - 5, CGRectGetMaxY(ipad) - 16, 10, 10)] fill];
+    // kabel
+    UIBezierPath *kabel = [UIBezierPath bezierPath];
+    [kabel moveToPoint:CGPointMake(300, 240)];
+    [kabel addCurveToPoint:CGPointMake(433, 280) controlPoint1:CGPointMake(320, 350) controlPoint2:CGPointMake(433, 350)];
+    [MODRA setStroke];
+    kabel.lineWidth = 6; kabel.lineCapStyle = kCGLineCapRound; [kabel stroke];
+    UIImage *obrazek = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return obrazek;
 }
 
 @interface OSDisplejController : UIViewController <UITextFieldDelegate>
@@ -681,10 +815,12 @@ static NSString *NazevModelu(void) {
     _cekani =[[UIView alloc] initWithFrame:plocha.bounds];
     [plocha addSubview:_cekani];
 
-    _obrazek = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sajdkara.png"]];
+    if (Novy()) plocha.backgroundColor = POZADI;
+    _obrazek = [[UIImageView alloc] initWithImage:Novy() ? PlochyObrazek() : [UIImage imageNamed:@"Sajdkara.png"]];
     [_cekani addSubview:_obrazek];
 
     _kolecko = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    if (Novy()) _kolecko.color = [UIColor grayColor];
     _kolecko.hidesWhenStopped = YES;
     [_cekani addSubview:_kolecko];
     _napis = [VytlacenyNapis(22, YES, [UIColor colorWithRed:0.82 green:0.84 blue:0.87 alpha:1]) retain];
@@ -706,6 +842,7 @@ static NSString *NazevModelu(void) {
     stin.frame = CGRectMake(0, 0, 2048, 7);
     [_stinListy.layer addSublayer:stin];
     _stinListy.clipsToBounds = YES;
+    _stinListy.hidden = Novy(); // ploche: jen tenka linka, bez stinu
     [_cekani addSubview:_stinListy];
 
     // Rezim ovladani: jako oprerka dlani MacBooku – hlinik, nahore lista s tlacitky, pod ni touchpad
@@ -761,12 +898,12 @@ static NSString *NazevModelu(void) {
     _psani.autocorrectionType = UITextAutocorrectionTypeNo;
     _psani.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _psani.spellCheckingType = UITextSpellCheckingTypeNo;
-    _psani.keyboardAppearance = UIKeyboardAppearanceAlert; // tmava klavesnice
+    _psani.keyboardAppearance = Novy() ? UIKeyboardAppearanceDefault : UIKeyboardAppearanceAlert; // iOS 6: tmava klavesnice
     [plocha addSubview:_psani];
 
     // Vyber rezimu: ukaze se pri kazdem otevreni appky
     _vyber = [[UIView alloc] initWithFrame:plocha.bounds];
-    _vyber.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Platno.png"]];
+    _vyber.backgroundColor = Novy() ? POZADI : [UIColor colorWithPatternImage:[UIImage imageNamed:@"Platno.png"]];
     OSLista *nahore = [[[OSLista alloc] initWithFrame:CGRectZero] autorelease];
     nahore.contentMode = UIViewContentModeRedraw;
     nahore.tag = 1;
@@ -863,7 +1000,7 @@ static NSString *NazevModelu(void) {
 - (void)ukazJazyky {
     if (!_jazyky) { // tmavy zavoj a na nem panel z cerneho skla s tlacitky jazyku
         _jazyky = [[UIView alloc] initWithFrame:self.view.bounds];
-        _jazyky.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+        _jazyky.backgroundColor = [UIColor colorWithWhite:0 alpha:Novy() ? 0.3 : 0.6];
         UIControl *zavoj = [[[UIControl alloc] initWithFrame:_jazyky.bounds] autorelease];
         zavoj.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [zavoj addTarget:self action:@selector(skryjJazyky) forControlEvents:UIControlEventTouchUpInside];

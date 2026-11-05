@@ -20,7 +20,7 @@ If you only have AppSync, install `OlderSidecar.ipa` from [Releases](https://git
 
 **Mac:**
 
-1. Download `OlderSidecar-1.6.0.dmg` from [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases),
+1. Download `OlderSidecar-1.7.0.dmg` from [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.

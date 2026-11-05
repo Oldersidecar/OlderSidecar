@@ -1,13 +1,13 @@
 Package: com.oldersidecar
-Version: 1.6.0
+Version: 1.7.0
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 6.0), uikittools
-Filename: debs/com.oldersidecar_1.6.0_iphoneos-arm.deb
-Size: 881652
-MD5sum: 1b67c985d001d47600c6ecc43da37f8b
-SHA1: a3e878aea8deb1a439328d31b8fca162fe57a02a
-SHA256: 72dd31cef437dfe7d30697f9869404b7764886e1de994c6af6b35876d2c06a84
+Filename: debs/com.oldersidecar_1.7.0_iphoneos-arm.deb
+Size: 884446
+MD5sum: 016736394f9038d78ed3c6569613173c
+SHA1: 3554cfe4ea95960a32f98de7be5d6bdc06b324ca
+SHA256: 8fa01348a77b6ddb486eff7ceb45e404140b64e8f0fbecdf8687de92712f1c86
 Section: Utilities
 Description: Mirror your Mac's screen to an old iPad over a USB cable. Tap to click. Needs the free Older Sidecar app on the Mac.
 Author: Older Sidecar

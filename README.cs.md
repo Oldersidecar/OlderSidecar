@@ -20,7 +20,7 @@ Pokud máš jen AppSync, nainstaluj `OlderSidecar.ipa` z [Releases](https://gith
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.6.0.dmg` z [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.7.0.dmg` z [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.

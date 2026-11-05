@@ -152,12 +152,17 @@ static NSString *CestaAgenta(void) {
 
 typedef NS_ENUM(NSInteger, OSKontrolka) { OSKontrolkaSeda, OSKontrolkaZelena, OSKontrolkaOranzova };
 
+// Novy (plochy) styl, kdyz je pripojeny iPad s iOS 7–10; jinak skeuomorfismus jako Mac OS X.
+// Pamatuje se posledni iPad, aby pruvodce i hlaseni mely spravny styl hned po spusteni.
+static BOOL gNovy;
+
 static NSColor *Barva(CGFloat r, CGFloat g, CGFloat b) {
     return [NSColor colorWithSRGBRed:r green:g blue:b alpha:1];
 }
 
 // Lucida Grande bylo pismo Mac OS X; kdyby v systemu chybelo, pouzije se systemove
 static NSFont *Pismo(CGFloat velikost, BOOL tucne) {
+    if (gNovy) return tucne ? [NSFont boldSystemFontOfSize:velikost] : [NSFont systemFontOfSize:velikost];
     NSFont *f = [NSFont fontWithName:tucne ? @"LucidaGrande-Bold" : @"LucidaGrande" size:velikost];
     return f ?: (tucne ? [NSFont boldSystemFontOfSize:velikost] : [NSFont systemFontOfSize:velikost]);
 }
@@ -166,7 +171,7 @@ static NSTextField *Popisek(NSString *text, NSFont *pismo, NSColor *barva, BOOL 
     NSTextField *t = [NSTextField wrappingLabelWithString:@""];
     t.selectable = NO;
     NSMutableDictionary *vzhled = [@{NSFontAttributeName: pismo, NSForegroundColorAttributeName: barva} mutableCopy];
-    if (vyryty) { // svetly odlesk pod pismem = text vyryty do kovu
+    if (vyryty && !gNovy) { // svetly odlesk pod pismem = text vyryty do kovu
         NSShadow *odlesk = [[NSShadow alloc] init];
         odlesk.shadowColor = [NSColor colorWithWhite:1 alpha:0.75];
         odlesk.shadowOffset = NSMakeSize(0, -1);
@@ -180,8 +185,14 @@ static NSTextField *Popisek(NSString *text, NSFont *pismo, NSColor *barva, BOOL 
 static NSImage *Kontrolka(OSKontrolka druh, CGFloat velikost) {
     NSColor *b = druh == OSKontrolkaZelena ? Barva(0.25, 0.78, 0.22)
                : druh == OSKontrolkaOranzova ? Barva(0.98, 0.62, 0.12) : Barva(0.62, 0.63, 0.66);
+    BOOL novy = gNovy;
     return [NSImage imageWithSize:NSMakeSize(velikost, velikost) flipped:NO drawingHandler:^BOOL(NSRect r) {
         NSRect kruh = NSInsetRect(r, 1, 1);
+        if (novy) { // plna barevna tecka
+            [(druh == OSKontrolkaZelena ? NSColor.systemGreenColor : druh == OSKontrolkaOranzova ? NSColor.systemOrangeColor : NSColor.systemGrayColor) setFill];
+            [[NSBezierPath bezierPathWithOvalInRect:NSInsetRect(kruh, velikost * 0.12, velikost * 0.12)] fill];
+            return YES;
+        }
         [[NSColor colorWithWhite:0 alpha:0.5] setFill];
         [[NSBezierPath bezierPathWithOvalInRect:kruh] fill];
         NSGradient *telo = [[NSGradient alloc] initWithStartingColor:[b blendedColorWithFraction:0.45 ofColor:NSColor.whiteColor]
@@ -246,6 +257,12 @@ static NSImage *Kontrolka(OSKontrolka druh, CGFloat velikost) {
 @end
 
 static NSButton *Tlacitko(NSString *nazev, BOOL modre, id cil, SEL akce) {
+    if (gNovy) { // obycejne tlacitko dnesniho macOS (modre = vychozi, potvrdi se Enterem)
+        NSButton *b = [NSButton buttonWithTitle:nazev target:cil action:akce];
+        b.bezelStyle = NSBezelStyleRounded;
+        if (modre) b.keyEquivalent = @"\r";
+        return b;
+    }
     NSButton *b = [[NSButton alloc] initWithFrame:NSZeroRect];
     OSAquaBunka *bunka = [[OSAquaBunka alloc] initTextCell:nazev];
     bunka.modra = modre;
@@ -268,6 +285,20 @@ static NSButton *Tlacitko(NSString *nazev, BOOL modre, id cil, SEL akce) {
 
 - (void)drawRect:(NSRect)oblast {
     // textura z tools/make-graphics.swift (sum rozmazany vodorovne, jako skutecny kartacovany kov)
+    if (gNovy) { // obycejne okno: pozadi systemu, panel jako seznam v Nastaveni
+        [NSColor.windowBackgroundColor setFill];
+        NSRectFill(self.bounds);
+        if (NSIsEmptyRect(self.panel)) return;
+        NSBezierPath *panel = [NSBezierPath bezierPathWithRoundedRect:self.panel xRadius:10 yRadius:10];
+        [NSColor.controlBackgroundColor setFill];
+        [panel fill];
+        [NSColor.separatorColor setStroke];
+        panel.lineWidth = 1;
+        [panel stroke];
+        [NSColor.separatorColor setFill];
+        for (NSNumber *y in self.predely) NSRectFill(NSMakeRect(NSMinX(self.panel) + 14, y.doubleValue, NSWidth(self.panel) - 28, 1));
+        return;
+    }
     [[NSImage imageNamed:@"Kov"] drawInRect:self.bounds];
     if (NSIsEmptyRect(self.panel)) return;
 
@@ -304,6 +335,7 @@ static void OtevriSoukromi(NSString *cast) {
 @interface OSPruvodce : NSObject <NSWindowDelegate>
 @property (nonatomic) BOOL ipadPripojen;
 - (void)ukaz;
+- (void)zmenStyl;
 @end
 
 @implementation OSPruvodce {
@@ -325,6 +357,16 @@ static void OtevriSoukromi(NSString *cast) {
     [_okno makeKeyAndOrderFront:nil];
 }
 
+// Styl se zmenil: okno se postavi znovu (a je-li otevrene, zase se ukaze)
+- (void)zmenStyl {
+    if (!_okno) return;
+    BOOL otevrene = _okno.visible;
+    _okno.delegate = nil;
+    [_okno orderOut:nil];
+    _okno = nil;
+    if (otevrene) [self ukaz];
+}
+
 - (void)setIpadPripojen:(BOOL)pripojen {
     _ipadPripojen = pripojen;
     if (_okno.visible) [self obnov];
@@ -342,7 +384,7 @@ static void OtevriSoukromi(NSString *cast) {
                                           backing:NSBackingStoreBuffered defer:NO];
     _okno.title = @"Older Sidecar";
     _okno.titlebarAppearsTransparent = YES; // hlinik i pod titulkem, jako cela okna v Tigeru
-    _okno.appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];
+    _okno.appearance = gNovy ? nil : [NSAppearance appearanceNamed:NSAppearanceNameAqua]; // novy styl umi i tmavy rezim
     _okno.releasedWhenClosed = NO;
     _okno.delegate = self;
     OSKov *kov = [[OSKov alloc] initWithFrame:NSMakeRect(0, 0, sirka, vyska)];
@@ -351,11 +393,11 @@ static void OtevriSoukromi(NSString *cast) {
     NSImageView *ikona = [NSImageView imageViewWithImage:NSApp.applicationIconImage];
     ikona.frame = NSMakeRect(10, 22, 136, 136); // sajdkara je siroka, ikona proto vetsi
     [kov addSubview:ikona];
-    NSTextField *nadpis = Popisek(NSLocalizedString(@"Welcome to Older Sidecar", nil), Pismo(19, YES), Barva(0.16, 0.17, 0.19), YES);
+    NSTextField *nadpis = Popisek(NSLocalizedString(@"Welcome to Older Sidecar", nil), Pismo(19, YES), gNovy ? NSColor.labelColor : Barva(0.16, 0.17, 0.19), YES);
     nadpis.frame = NSMakeRect(152, 56, sirka - 176, 28);
     [kov addSubview:nadpis];
     NSTextField *uvod = Popisek(NSLocalizedString(@"Mirror your Mac's screen to an old iPad over a USB cable. Allow two things and install the iPad app:", nil),
-                                Pismo(12, NO), Barva(0.27, 0.28, 0.31), YES);
+                                Pismo(12, NO), gNovy ? NSColor.secondaryLabelColor : Barva(0.27, 0.28, 0.31), YES);
     uvod.frame = NSMakeRect(152, 88, sirka - 176, 58);
     [kov addSubview:uvod];
 
@@ -373,17 +415,17 @@ static void OtevriSoukromi(NSString *cast) {
         CGFloat y = NSMinY(panel) + i * radek;
         _kontrolky[i] = [[NSImageView alloc] initWithFrame:NSMakeRect(NSMinX(panel) + 18, y + 28, 20, 20)];
         [kov addSubview:_kontrolky[i]];
-        NSTextField *nazev = Popisek(nazvy[i], Pismo(13, YES), Barva(0.12, 0.12, 0.14), YES);
+        NSTextField *nazev = Popisek(nazvy[i], Pismo(13, YES), gNovy ? NSColor.labelColor : Barva(0.12, 0.12, 0.14), YES);
         nazev.frame = NSMakeRect(NSMinX(panel) + 50, y + 14, 296, 18);
         [kov addSubview:nazev];
-        NSTextField *popis = Popisek(popisy[i], Pismo(11, NO), Barva(0.36, 0.37, 0.40), YES);
+        NSTextField *popis = Popisek(popisy[i], Pismo(11, NO), gNovy ? NSColor.secondaryLabelColor : Barva(0.36, 0.37, 0.40), YES);
         popis.frame = NSMakeRect(NSMinX(panel) + 50, y + 33, 296, 48);
         [kov addSubview:popis];
         _tlacitka[i] = Tlacitko(akce[i], NO, self, @selector(krok:));
         _tlacitka[i].tag = i;
         _tlacitka[i].frame = NSMakeRect(NSMaxX(panel) - 166, y + 22, 152, 32);
         [kov addSubview:_tlacitka[i]];
-        _hotovo[i] = Popisek(splneno[i], Pismo(12, YES), Barva(0.18, 0.50, 0.16), YES);
+        _hotovo[i] = Popisek(splneno[i], Pismo(12, YES), gNovy ? NSColor.systemGreenColor : Barva(0.18, 0.50, 0.16), YES);
         _hotovo[i].alignment = NSTextAlignmentRight;
         _hotovo[i].frame = NSMakeRect(NSMaxX(panel) - 166, y + 29, 148, 18);
         [kov addSubview:_hotovo[i]];
@@ -460,6 +502,13 @@ static NSView *ZahlaviMenu(void) {
     // maly iPad na sirku: cerny ram se stribrnou hranou, modra obrazovka, tlacitko Domu
     NSRect ipad = NSMakeRect(16, 16, 42, 32);
     NSBezierPath *telo = [NSBezierPath bezierPathWithRoundedRect:ipad xRadius:5 yRadius:5];
+    if (gNovy) { // jen obrys v barve textu
+        [NSColor.labelColor setStroke];
+        telo.lineWidth = 2;
+        [telo stroke];
+        [[NSColor.controlAccentColor colorWithAlphaComponent:0.25] setFill];
+        NSRectFill(NSMakeRect(NSMinX(ipad) + 6, NSMinY(ipad) + 5, ipad.size.width - 12, ipad.size.height - 10));
+    } else {
     [[NSColor colorWithWhite:0.12 alpha:1] setFill];
     [telo fill];
     [[NSColor colorWithWhite:0.78 alpha:1] setStroke];
@@ -469,6 +518,7 @@ static NSView *ZahlaviMenu(void) {
         drawInRect:NSMakeRect(NSMinX(ipad) + 6, NSMinY(ipad) + 4, ipad.size.width - 12, ipad.size.height - 8) angle:-90];
     [[NSColor colorWithWhite:0.45 alpha:1] setFill];
     [[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(NSMaxX(ipad) - 5, NSMidY(ipad) - 1.5, 3, 3)] fill];
+    }
 
     [self.jmeno ?: @"iPad" drawInRect:NSMakeRect(68, 7, w - 76, 18)
                        withAttributes:@{NSFontAttributeName: Pismo(13, YES), NSForegroundColorAttributeName: NSColor.labelColor}];
@@ -522,17 +572,26 @@ typedef NS_ENUM(NSInteger, OSZnacka) { OSZnackaIPad, OSZnackaOdpojeno, OSZnackaO
 - (BOOL)isFlipped { return YES; }
 
 - (void)drawRect:(NSRect)oblast {
-    [[NSColor colorWithWhite:0 alpha:0.7] setFill];
-    [[NSBezierPath bezierPathWithRoundedRect:self.bounds xRadius:22 yRadius:22] fill];
-    [NSColor.whiteColor set];
+    NSColor *znacka = gNovy ? NSColor.labelColor : NSColor.whiteColor;
+    if (gNovy) {
+        [[NSColor.windowBackgroundColor colorWithAlphaComponent:0.94] setFill];
+        NSBezierPath *ctverec = [NSBezierPath bezierPathWithRoundedRect:NSInsetRect(self.bounds, 0.5, 0.5) xRadius:18 yRadius:18];
+        [ctverec fill];
+        [NSColor.separatorColor setStroke];
+        [ctverec stroke];
+    } else {
+        [[NSColor colorWithWhite:0 alpha:0.7] setFill];
+        [[NSBezierPath bezierPathWithRoundedRect:self.bounds xRadius:22 yRadius:22] fill];
+    }
+    [znacka set];
     NSRect z = NSMakeRect(52, 24, 96, 76);
     if (self.znacka == OSZnackaIPad || self.znacka == OSZnackaOdpojeno) {
         NSBezierPath *telo = [NSBezierPath bezierPathWithRoundedRect:NSInsetRect(z, 3, 6) xRadius:10 yRadius:10];
         telo.lineWidth = 5;
         [telo stroke];
-        [[NSColor colorWithWhite:1 alpha:0.3] setFill];
+        [[znacka colorWithAlphaComponent:0.3] setFill];
         NSRectFillUsingOperation(NSInsetRect(z, 17, 17), NSCompositingOperationSourceOver);
-        [NSColor.whiteColor setFill];
+        [znacka setFill];
         [[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(NSMaxX(z) - 13, NSMidY(z) - 3.5, 7, 7)] fill];
         if (self.znacka == OSZnackaOdpojeno) { // preskrtnuty iPad
             NSBezierPath *cara = [NSBezierPath bezierPath];
@@ -552,7 +611,7 @@ typedef NS_ENUM(NSInteger, OSZnacka) { OSZnackaIPad, OSZnackaOdpojeno, OSZnackaO
         oko.lineWidth = 5;
         [oko stroke];
         [[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(NSMidX(z) - 17, NSMidY(z) - 17, 34, 34)] fill];
-        [[NSColor colorWithWhite:0.1 alpha:1] setFill];
+        [(gNovy ? NSColor.windowBackgroundColor : [NSColor colorWithWhite:0.1 alpha:1]) setFill];
         [[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(NSMidX(z) - 7, NSMidY(z) - 7, 14, 14)] fill];
     } else { // touchpad pod klavesnici
         for (int y = 0; y < 2; y++)
@@ -565,9 +624,9 @@ typedef NS_ENUM(NSInteger, OSZnacka) { OSZnackaIPad, OSZnackaOdpojeno, OSZnackaO
     NSMutableParagraphStyle *stred = [[NSMutableParagraphStyle alloc] init];
     stred.alignment = NSTextAlignmentCenter;
     [self.nadpis drawInRect:NSMakeRect(8, 116, 184, 22) withAttributes:@{NSFontAttributeName: Pismo(15, YES),
-        NSForegroundColorAttributeName: NSColor.whiteColor, NSParagraphStyleAttributeName: stred}];
+        NSForegroundColorAttributeName: znacka, NSParagraphStyleAttributeName: stred}];
     [self.podnadpis ?: @"" drawInRect:NSMakeRect(8, 142, 184, 40) withAttributes:@{NSFontAttributeName: Pismo(12, NO),
-        NSForegroundColorAttributeName: [NSColor colorWithWhite:1 alpha:0.7], NSParagraphStyleAttributeName: stred}];
+        NSForegroundColorAttributeName: [znacka colorWithAlphaComponent:0.7], NSParagraphStyleAttributeName: stred}];
 }
 @end
 
@@ -663,9 +722,11 @@ static void ZmenaDispleje(CGDirectDisplayID displej, CGDisplayChangeSummaryFlags
     CGEventFlags _flagyTazeni;      // ⌘ ⌥ ⌃ ⇧ platne po dobu tazeni
     NSMenuItem *_ipadPolozka;       // karta iPadu v menu (jmeno, model, baterie), jen kdyz je pripojeny
     OSKartaIPadu *_karta;
+    OSKontrolka _kontrolka;         // posledni barva kontrolky stavu (pri zmene stylu se prekresli)
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)oznameni {
+    gNovy = [[NSUserDefaults standardUserDefaults] boolForKey:@"NovyStyl"];
     _ikona = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     _ikona.button.image = [NSImage imageWithSystemSymbolName:@"ipad.landscape" accessibilityDescription:@"Older Sidecar"];
     NSMenu *menu = [[NSMenu alloc] init];
@@ -733,6 +794,7 @@ static void ZmenaDispleje(CGDirectDisplayID displej, CGDisplayChangeSummaryFlags
 
 - (void)nastavStav:(NSString *)text kontrolka:(OSKontrolka)kontrolka {
     NSLog(@"%@", text);
+    _kontrolka = kontrolka;
     dispatch_async(dispatch_get_main_queue(), ^{
         self->_stav.title = text;
         self->_stav.image = Kontrolka(kontrolka, 14);
@@ -918,6 +980,14 @@ static void ZmenaDispleje(CGDirectDisplayID displej, CGDisplayChangeSummaryFlags
     NSArray *radky = [text componentsSeparatedByString:@"\n"];
     _karta.jmeno = radky.count > 0 ? radky[0] : @"iPad";
     _karta.popis = radky.count > 2 ? [NSString stringWithFormat:@"%@  ·  %@", radky[1], radky[2]] : radky.count > 1 ? radky[1] : @"";
+    // treti radek je "iOS 6.1.3": od iOS 7 plochy styl
+    BOOL novy = radky.count > 2 && [radky[2] hasPrefix:@"iOS "] && [[radky[2] substringFromIndex:4] integerValue] >= 7;
+    if (novy != gNovy) {
+        gNovy = novy;
+        [[NSUserDefaults standardUserDefaults] setBool:novy forKey:@"NovyStyl"];
+        [_pruvodce zmenStyl];
+        [self nastavStav:_stav.title kontrolka:self->_kontrolka];
+    }
     [_karta setNeedsDisplay:YES];
     _ipadPolozka.hidden = NO;
 }
