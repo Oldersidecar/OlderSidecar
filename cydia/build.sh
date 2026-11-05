@@ -3,6 +3,8 @@
 #   com.oldersidecar       – iOS 6, skeuomorfni vzhled
 #   com.oldersidecar.ios7  – iOS 7–10, plochy vzhled
 # Obe instaluji stejnou appku, proto se navzajem vylucuji
+# Zverejneni repa (jen http, at ho najde i iOS 6): npx surge ./docs oldersidecar.surge.sh
+# Projekt na surge ma vypnute vynucovani https: npx surge oldersidecar.surge.sh config --force null
 # a obnovi Cydia repo v docs/ (to zverejnuje GitHub Pages). Potrebuje dpkg: brew install dpkg
 set -e
 cd "$(dirname "$0")/.."

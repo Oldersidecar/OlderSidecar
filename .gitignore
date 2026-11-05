@@ -6,3 +6,5 @@ sdk/
 *.p12
 *.pem
 *.key
+# surge si sem zapisuje domenu; GitHub Pages by ji bral jako vlastni domenu
+docs/CNAME
