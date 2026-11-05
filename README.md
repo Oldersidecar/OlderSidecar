@@ -15,12 +15,13 @@ remote for the Mac.
 
 ## Install
 
-**iPad:** add `https://vp-of-tradelin.github.io/OlderSidecar/` as a source in Cydia and install Older Sidecar.
-If you only have AppSync, install `OlderSidecar.ipa` from [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases).
+**iPad:** add `http://oldersidecar.surge.sh/` as a source in Cydia (with http, not https, so that iOS 6 can reach it).
+Install **Older Sidecar** on iOS 6, or **Older Sidecar (iOS 7–10)** on newer iPads.
+If you only have AppSync, install `OlderSidecar-iOS6.ipa` or `OlderSidecar-iOS7-10.ipa` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases).
 
 **Mac:**
 
-1. Download `OlderSidecar-1.7.0.dmg` from [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases),
+1. Download `OlderSidecar-1.8.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.
@@ -51,9 +52,9 @@ Needs Xcode Command Line Tools (`xcode-select --install`) and dpkg (`brew instal
 ```
 
 - `mac/` - Mac app, output `dist/OlderSidecar-<version>.dmg`
-- `ios/` - iPad app (armv7, iOS 6+), output `dist/OlderSidecar.ipa`. Downloads `iPhoneOS10.3.sdk` from
+- `ios/` - iPad app (armv7) in two variants: `ios/build.sh ios6` and `ios/build.sh ios7`. Downloads `iPhoneOS10.3.sdk` from
   [theos/sdks](https://github.com/theos/sdks) the first time.
-- `cydia/` - the .deb and the Cydia repo in `docs/` (served by GitHub Pages)
+- `cydia/` - both .deb packages and the Cydia repo in `docs/` (uploaded to surge.sh)
 - `tools/make-graphics.swift` - draws the icon and textures
 
 The Mac app talks to the iPad through usbmuxd on port 7777 and sends JPEG frames captured with ScreenCaptureKit.

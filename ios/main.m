@@ -112,7 +112,13 @@ static NSString *NapisPripoj(void) {
 }
 
 // iOS 7–10: plochy styl (bile plochy, modre znacky, bez lesku a stinu). iOS 6: skeuomorfismus.
+// Balicky pro Cydii jsou dva: ios/build.sh ios6 (jen skeuomorfismus) a ios7 (jen plochy styl).
 static BOOL Novy(void) {
+#if defined(STYL_NOVY)
+    return YES;
+#elif defined(STYL_STARY)
+    return NO;
+#endif
     static int novy = -1;
     if (novy < 0) novy = [[UIDevice currentDevice].systemVersion floatValue] >= 7;
     return novy;
@@ -808,14 +814,13 @@ static UIImage *PlochyObrazek(void) {
 - (void)loadView {
     UIView *plocha = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // dokud nejde obraz: lnene platno jako v iOS 6, obrazek a vytlaceny napis
-    plocha.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Platno.png"]];
+    plocha.backgroundColor = Novy() ? POZADI : [UIColor colorWithPatternImage:[UIImage imageNamed:@"Platno.png"]];
     plocha.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     plocha.layer.contentsGravity = kCAGravityResize;
     plocha.multipleTouchEnabled = YES; // dva prsty = zvetseni
     _cekani =[[UIView alloc] initWithFrame:plocha.bounds];
     [plocha addSubview:_cekani];
 
-    if (Novy()) plocha.backgroundColor = POZADI;
     _obrazek = [[UIImageView alloc] initWithImage:Novy() ? PlochyObrazek() : [UIImage imageNamed:@"Sajdkara.png"]];
     [_cekani addSubview:_obrazek];
 

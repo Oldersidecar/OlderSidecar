@@ -15,12 +15,13 @@ a ovladač pro Mac.
 
 ## Instalace
 
-**iPad:** v Cydii přidej zdroj `https://vp-of-tradelin.github.io/OlderSidecar/` a nainstaluj Older Sidecar.
-Pokud máš jen AppSync, nainstaluj `OlderSidecar.ipa` z [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases).
+**iPad:** v Cydii přidej zdroj `http://oldersidecar.surge.sh/` (s http, ne https, jinak se k němu iOS 6 nedostane).
+Na iOS 6 nainstaluj **Older Sidecar**, na novějších iPadech **Older Sidecar (iOS 7–10)**.
+Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa` nebo `OlderSidecar-iOS7-10.ipa` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases).
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.7.0.dmg` z [Releases](https://github.com/VP-of-Tradelin/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.8.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.
@@ -50,9 +51,9 @@ Potřebuje Command Line Tools (`xcode-select --install`) a dpkg (`brew install d
 ```
 
 - `mac/` - aplikace pro Mac, výstup `dist/OlderSidecar-<verze>.dmg`
-- `ios/` - aplikace pro iPad (armv7, iOS 6+), výstup `dist/OlderSidecar.ipa`. Poprvé si stáhne
+- `ios/` - aplikace pro iPad (armv7) ve dvou variantách: `ios/build.sh ios6` a `ios/build.sh ios7`. Poprvé si stáhne
   `iPhoneOS10.3.sdk` z [theos/sdks](https://github.com/theos/sdks).
-- `cydia/` - balíček .deb a Cydia repo v `docs/` (zveřejňuje GitHub Pages)
+- `cydia/` - oba balíčky .deb a Cydia repo v `docs/` (nahrává se na surge.sh)
 - `tools/make-graphics.swift` - kreslí ikonu a textury
 
 Mac s iPadem mluví přes usbmuxd na portu 7777 a posílá snímky JPEG zachycené přes ScreenCaptureKit.

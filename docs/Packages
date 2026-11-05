@@ -1,15 +1,34 @@
 Package: com.oldersidecar
-Version: 1.7.0
+Version: 1.8.0
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
-Depends: firmware (>= 6.0), uikittools
-Filename: debs/com.oldersidecar_1.7.0_iphoneos-arm.deb
-Size: 884446
-MD5sum: 016736394f9038d78ed3c6569613173c
-SHA1: 3554cfe4ea95960a32f98de7be5d6bdc06b324ca
-SHA256: 8fa01348a77b6ddb486eff7ceb45e404140b64e8f0fbecdf8687de92712f1c86
+Depends: firmware (>= 6.0), firmware (<< 7.0), uikittools
+Conflicts: com.oldersidecar.ios7
+Replaces: com.oldersidecar.ios7
+Filename: debs/com.oldersidecar_1.8.0_iphoneos-arm.deb
+Size: 881866
+MD5sum: 0e64834e1cdd07e560b5e98be0a3ede2
+SHA1: 364c46557ecab6a91154796e780b125904b7c0a9
+SHA256: ecf2dc6bacf362728140609600807b863f61ba78ca9ccbb92f5f128e62d75b83
 Section: Utilities
-Description: Mirror your Mac's screen to an old iPad over a USB cable. Tap to click. Needs the free Older Sidecar app on the Mac.
+Description: Shows your Mac's screen on the iPad over USB, or turns the iPad into a trackpad and remote for the Mac. Needs the free Older Sidecar app on the Mac.
 Author: Older Sidecar
 Name: Older Sidecar
+
+Package: com.oldersidecar.ios7
+Version: 1.8.0
+Architecture: iphoneos-arm
+Maintainer: Older Sidecar
+Depends: firmware (>= 7.0), firmware (<< 11.0), uikittools
+Conflicts: com.oldersidecar
+Replaces: com.oldersidecar
+Filename: debs/com.oldersidecar.ios7_1.8.0_iphoneos-arm.deb
+Size: 135214
+MD5sum: ea8e7154dd73885bf67cc28f783b1a61
+SHA1: f25df76a9f8eb892268824d00fdade7fd5e60987
+SHA256: 4c54c03dd9fd2170c6ab979f9ac25fe30b365c6157704f807af0e3c148b75206
+Section: Utilities
+Description: Shows your Mac's screen on the iPad over USB, or turns the iPad into a trackpad and remote for the Mac. Needs the free Older Sidecar app on the Mac.
+Author: Older Sidecar
+Name: Older Sidecar (iOS 7–10)
 

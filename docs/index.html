@@ -33,18 +33,17 @@
 <div class="karta">
   <img src="ikona.png" alt="">
   <h1>Older Sidecar</h1>
-  <p>Mirror your Mac's screen to an old iPad (iOS&nbsp;6–10) over a USB cable. Tap the iPad to click.</p>
-  <p class="pozn">Zrcadlí obrazovku Macu na starý iPad přes USB kabel. Ťuknutí na iPadu = kliknutí.</p>
+  <p>Your Mac's screen on an old iPad (iOS&nbsp;6–10) over a USB cable, or the iPad as a trackpad and remote for the Mac.</p>
+  <p class="pozn">Obrazovka Macu na starém iPadu přes USB kabel, nebo iPad jako touchpad a ovladač pro Mac.</p>
   <a class="tlacitko" id="cydia" href="#">Add to Cydia</a>
   <a class="tlacitko sede" id="mac" href="#">Download for Mac</a>
   <p class="pozn">Repo URL:<br><code id="repo"></code></p>
 </div>
 <p class="dole"><a id="zdroj" href="#">Source code on GitHub</a> · Sidecar is a trademark of Apple Inc. This project is not affiliated with Apple.</p>
 <script>
-  // adresa repa = adresa teto stranky (https://<uzivatel>.github.io/OlderSidecar/)
+  // adresa repa = adresa teto stranky (http://oldersidecar.surge.sh/)
   var repo = location.href.replace(/[#?].*$/, "").replace(/index\.html$/, "");
-  var uzivatel = location.hostname.split(".")[0];
-  var github = "https://github.com/" + uzivatel + "/OlderSidecar";
+  var github = "https://github.com/Oldersidecar/OlderSidecar";
   document.getElementById("repo").innerHTML = repo;
   document.getElementById("cydia").href = "cydia://url/https://cydia.saurik.com/api/share#?source=" + repo;
   document.getElementById("mac").href = github + "/releases/latest";

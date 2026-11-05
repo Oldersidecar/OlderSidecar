@@ -17,7 +17,7 @@
 #endif
 
 #define AGENT @"com.oldersidecar.mac" // LaunchAgent pro spousteni po prihlaseni
-#define ADRESA_REPA @"https://vp-of-tradelin.github.io/OlderSidecar/" // Cydia zdroj (GitHub Pages)
+#define ADRESA_REPA @"http://oldersidecar.surge.sh/" // Cydia zdroj; jen http: iOS 6 nevěří dnešním certifikátům (GitHub Pages má jen https)
 
 // Stejne zpravy jako v aplikaci na iPadu (ios/main.m).
 enum {
