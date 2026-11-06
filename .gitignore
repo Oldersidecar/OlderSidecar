@@ -1,7 +1,6 @@
 dist/
 sdk/
 .DS_Store
-.claude/
 # podpisovy klic nikdy do repozitare
 *.p12
 *.pem
