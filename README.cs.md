@@ -21,7 +21,7 @@ Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa` nebo `OlderSidecar-i
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.9.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.9.1.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.
@@ -34,12 +34,14 @@ Běží v liště nahoře a spouští se po přihlášení. V jejím menu to jde
 Připoj iPad nebo iPhone kabelem a otevři na něm Older Sidecar. Vyber si režim:
 
 - **Jen obrazovka** - obraz Macu, nic se omylem neklikne. Dvěma prsty jde přiblížit.
+- **Druhý monitor** (iPad) - z iPadu je další monitor Macu vedle hlavního. Přetáhneš na něj okna. Kde leží,
+  nastavíš v Nastavení systému > Monitory.
 - **Ovládat Mac** - z iPadu nebo iPhonu je touchpad s řadou kláves (esc, tab, ⌘⌥⌃⇧, šipky), klávesnice
   a tlačítka na jas, Mission Control, Launchpad, hudbu, hlasitost a zamčení. Obraz Macu se neukazuje.
 - **Dock** - mřížka velkých tlačítek. Každé na Macu otevře appku, web nebo složku, nebo stiskne klávesovou
   zkratku. Nastavují se na Macu v menu: Older Sidecar → Dock….
 
-Na iPhonu režim obrazovky není, jen Ovládat Mac a Dock.
+Na iPhonu režimy s obrazem nejsou, jen Ovládat Mac a Dock.
 
 V menu na Macu jde změnit rozlišení (režimy 4:3 vyplní celý iPad), je tam baterie zařízení a volba jazyka.
 Jazyků je 14; překlady zatím nekontroloval rodilý mluvčí, opravy jsou vítané.
