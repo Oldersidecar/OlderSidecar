@@ -21,7 +21,7 @@ If you only have AppSync, install `OlderSidecar-iOS6.ipa` or `OlderSidecar-iOS7-
 
 **Mac:**
 
-1. Download `OlderSidecar-1.9.1.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Download `OlderSidecar-1.9.2.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.
@@ -46,6 +46,9 @@ On the iPhone there are no screen modes, only Control Mac and Dock.
 The Mac menu has a resolution picker (4:3 modes fill the whole iPad), shows the device's battery, and lets you
 change the language. 14 languages are included; the translations were not checked by native speakers yet,
 fixes are welcome.
+
+Copy text on the Mac and paste it on the iPad or iPhone, or the other way round (Share Clipboard in the Mac menu).
+The app opens in the mode you used last time.
 
 When the Mac sleeps, the iPad or iPhone says so instead of freezing.
 

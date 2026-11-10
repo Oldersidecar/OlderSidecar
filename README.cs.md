@@ -21,7 +21,7 @@ Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa` nebo `OlderSidecar-i
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.9.1.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.9.2.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.
@@ -45,6 +45,9 @@ Na iPhonu režimy s obrazem nejsou, jen Ovládat Mac a Dock.
 
 V menu na Macu jde změnit rozlišení (režimy 4:3 vyplní celý iPad), je tam baterie zařízení a volba jazyka.
 Jazyků je 14; překlady zatím nekontroloval rodilý mluvčí, opravy jsou vítané.
+
+Text zkopírovaný na Macu vložíš na iPadu nebo iPhonu a naopak (Sdílet schránku v menu na Macu).
+Appka se otevře v režimu, který jsi použil naposledy.
 
 Když Mac usne, iPad nebo iPhone to napíše a nezamrzne.
 
