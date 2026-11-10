@@ -10,18 +10,18 @@ sloužit jako touchpad a ovladač, nebo jako Dock s velkými tlačítky (trochu 
 ## Co je potřeba
 
 - Mac s macOS 12.3 nebo novějším (Intel i Apple Silicon)
-- iPad nebo iPhone s jailbreakem a iOS 6 až 10 (iPad 2, 3, 4, iPad mini 1, iPhone 4S, 5, 5c, 5s, 6, …)
+- iPad nebo iPhone s jailbreakem a iOS 6 až 12 (iPad 2, 3, 4, iPad mini, iPad Air, iPhone 4S, 5, 5c, 5s, 6, …)
 - USB kabel. Wi-Fi se nepoužívá.
 
 ## Instalace
 
 **iPad / iPhone:** v Cydii přidej zdroj `http://oldersidecar.surge.sh/` (s http, ne https, jinak se k němu iOS 6 nedostane).
-Na iOS 6 nainstaluj **Older Sidecar**, na novějších zařízeních **Older Sidecar (iOS 7–10)**.
-Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa` nebo `OlderSidecar-iOS7-10.ipa` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases).
+Na iOS 6 nainstaluj **Older Sidecar**, na novějších zařízeních **Older Sidecar (iOS 7–10)** nebo **Older Sidecar (iOS 11–12)**.
+Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-10.ipa` nebo `OlderSidecar-iOS11-12.ipa` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases).
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.9.2.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.10.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.

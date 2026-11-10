@@ -10,18 +10,18 @@ can work as a trackpad and remote or as a Dock of big buttons (a bit like a Stre
 ## Requirements
 
 - Mac with macOS 12.3 or later (Intel or Apple Silicon)
-- Jailbroken iPad or iPhone on iOS 6 to 10 (iPad 2, 3, 4, iPad mini 1, iPhone 4S, 5, 5c, 5s, 6, …)
+- Jailbroken iPad or iPhone on iOS 6 to 12 (iPad 2, 3, 4, iPad mini, iPad Air, iPhone 4S, 5, 5c, 5s, 6, …)
 - USB cable. Wi-Fi is not used.
 
 ## Install
 
 **iPad / iPhone:** add `http://oldersidecar.surge.sh/` as a source in Cydia (with http, not https, so that iOS 6 can reach it).
-Install **Older Sidecar** on iOS 6, or **Older Sidecar (iOS 7–10)** on newer devices.
-If you only have AppSync, install `OlderSidecar-iOS6.ipa` or `OlderSidecar-iOS7-10.ipa` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases).
+Install **Older Sidecar** on iOS 6, **Older Sidecar (iOS 7–10)** or **Older Sidecar (iOS 11–12)** on newer devices.
+If you only have AppSync, install `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-10.ipa` or `OlderSidecar-iOS11-12.ipa` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases).
 
 **Mac:**
 
-1. Download `OlderSidecar-1.9.2.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Download `OlderSidecar-1.10.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.
