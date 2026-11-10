@@ -21,7 +21,7 @@ Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.10.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.11.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.
@@ -42,6 +42,8 @@ Připoj iPad nebo iPhone kabelem a otevři na něm Older Sidecar. Vyber si reži
   zkratku. Nastavují se na Macu v menu: Older Sidecar → Dock….
 
 Na iPhonu režimy s obrazem nejsou, jen Ovládat Mac a Dock.
+
+Zařízení můžeš připojit víc najednou a každé má svůj režim, třeba iPhone jako Dock a iPad jako druhý monitor.
 
 V menu na Macu jde změnit rozlišení (režimy 4:3 vyplní celý iPad), je tam baterie zařízení a volba jazyka.
 Jazyků je 14; překlady zatím nekontroloval rodilý mluvčí, opravy jsou vítané.

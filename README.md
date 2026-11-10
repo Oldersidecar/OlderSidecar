@@ -21,7 +21,7 @@ If you only have AppSync, install `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-10
 
 **Mac:**
 
-1. Download `OlderSidecar-1.10.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Download `OlderSidecar-1.11.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.
@@ -42,6 +42,9 @@ Plug in the iPad or iPhone and open Older Sidecar on it. Pick a mode:
   shortcut. You set them up on the Mac in the menu: Older Sidecar → Dock….
 
 On the iPhone there are no screen modes, only Control Mac and Dock.
+
+You can plug in several devices at once and each one has its own mode, for example an iPhone as the Dock
+and an iPad as a second display.
 
 The Mac menu has a resolution picker (4:3 modes fill the whole iPad), shows the device's battery, and lets you
 change the language. 14 languages are included; the translations were not checked by native speakers yet,
