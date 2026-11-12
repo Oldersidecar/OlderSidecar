@@ -7,6 +7,15 @@ sloužit jako touchpad a ovladač, nebo jako Dock s velkými tlačítky (trochu 
 
 [English](README.md)
 
+<p align="center"><img src="obrazky/1-older-sidecar.png" alt="Older Sidecar"></p>
+<p align="center">
+<img src="obrazky/2-second-display.png" width="49%" alt="Second display">
+<img src="obrazky/3-dock.png" width="49%" alt="Dock">
+<img src="obrazky/4-trackpad.png" width="49%" alt="Trackpad and keys">
+<img src="obrazky/5-two-at-once.png" width="49%" alt="Two devices at once">
+<img src="obrazky/6-ios6-to-ios12.png" width="49%" alt="iOS 6 to iOS 12">
+</p>
+
 ## Co je potřeba
 
 - Mac s macOS 12.3 nebo novějším (Intel i Apple Silicon)
