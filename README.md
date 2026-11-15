@@ -20,7 +20,7 @@ can work as a trackpad and remote or as a Dock of big buttons (a bit like a Stre
 
 - Mac with macOS 12.3 or later (Intel or Apple Silicon)
 - Jailbroken iPad or iPhone on iOS 6 to 12 (iPad 2, 3, 4, iPad mini, iPad Air, iPhone 4S, 5, 5c, 5s, 6, …)
-- USB cable. Wi-Fi is not used.
+- USB cable. Wi-Fi also works, once the device has been connected by cable (the cable is faster).
 
 ## Install
 
@@ -30,7 +30,7 @@ If you only have AppSync, install `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-10
 
 **Mac:**
 
-1. Download `OlderSidecar-1.11.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Download `OlderSidecar-1.12.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.
@@ -42,7 +42,7 @@ It runs in the menu bar and starts at login. You can turn that off in its menu.
 
 Plug in the iPad or iPhone and open Older Sidecar on it. Pick a mode:
 
-- **Screen only** - the Mac screen, nothing gets clicked by accident. Pinch to zoom.
+- **Screen only** - the Mac screen. Tap to click, drag, hold for a right click, pinch to zoom.
 - **Second display** (iPad) - the iPad becomes an extra display for the Mac, next to your main one. Drag windows
   onto it. You can arrange it in System Settings > Displays.
 - **Control Mac** - the iPad or iPhone becomes a trackpad with a row of keys (esc, tab, ⌘⌥⌃⇧, arrows), a keyboard
@@ -55,11 +55,11 @@ On the iPhone there are no screen modes, only Control Mac and Dock.
 You can plug in several devices at once and each one has its own mode, for example an iPhone as the Dock
 and an iPad as a second display.
 
-The Mac menu has a resolution picker (4:3 modes fill the whole iPad), shows the device's battery, and lets you
-change the language. 14 languages are included; the translations were not checked by native speakers yet,
+The Mac menu shows each device with its battery. Settings… has the resolution picker (4:3 modes fill the whole
+iPad), touch in the picture, Wi-Fi, a sharper picture on Retina iPads, clipboard sharing, open at login, the language and a daily check for a new version (it only asks GitHub for the latest version number). 14 languages are included; the translations were not checked by native speakers yet,
 fixes are welcome.
 
-Copy text on the Mac and paste it on the iPad or iPhone, or the other way round (Share Clipboard in the Mac menu).
+Copy text on the Mac and paste it on the iPad or iPhone, or the other way round (Share Clipboard in Settings on the Mac).
 The app opens in the mode you used last time.
 
 When the Mac sleeps, the iPad or iPhone says so instead of freezing.

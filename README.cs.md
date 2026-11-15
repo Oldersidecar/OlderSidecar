@@ -20,7 +20,7 @@ sloužit jako touchpad a ovladač, nebo jako Dock s velkými tlačítky (trochu 
 
 - Mac s macOS 12.3 nebo novějším (Intel i Apple Silicon)
 - iPad nebo iPhone s jailbreakem a iOS 6 až 12 (iPad 2, 3, 4, iPad mini, iPad Air, iPhone 4S, 5, 5c, 5s, 6, …)
-- USB kabel. Wi-Fi se nepoužívá.
+- USB kabel. Jde to i přes Wi-Fi, jakmile bylo zařízení jednou připojené kabelem (kabel je rychlejší).
 
 ## Instalace
 
@@ -30,7 +30,7 @@ Pokud máš jen AppSync, nainstaluj `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-
 
 **Mac:**
 
-1. Stáhni `OlderSidecar-1.11.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Stáhni `OlderSidecar-1.12.0.dmg` z [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    otevři ho a přetáhni Older Sidecar do Aplikací.
 2. Aplikace není ověřená Applem, takže ji macOS poprvé zablokuje. V Nastavení systému >
    Soukromí a zabezpečení klikni na Přesto otevřít.
@@ -42,7 +42,7 @@ Běží v liště nahoře a spouští se po přihlášení. V jejím menu to jde
 
 Připoj iPad nebo iPhone kabelem a otevři na něm Older Sidecar. Vyber si režim:
 
-- **Jen obrazovka** - obraz Macu, nic se omylem neklikne. Dvěma prsty jde přiblížit.
+- **Jen obrazovka** - obraz Macu. Ťuknutí klikne, tah táhne, podržení je pravý klik, dvěma prsty jde přiblížit.
 - **Druhý monitor** (iPad) - z iPadu je další monitor Macu vedle hlavního. Přetáhneš na něj okna. Kde leží,
   nastavíš v Nastavení systému > Monitory.
 - **Ovládat Mac** - z iPadu nebo iPhonu je touchpad s řadou kláves (esc, tab, ⌘⌥⌃⇧, šipky), klávesnice
@@ -54,10 +54,11 @@ Na iPhonu režimy s obrazem nejsou, jen Ovládat Mac a Dock.
 
 Zařízení můžeš připojit víc najednou a každé má svůj režim, třeba iPhone jako Dock a iPad jako druhý monitor.
 
-V menu na Macu jde změnit rozlišení (režimy 4:3 vyplní celý iPad), je tam baterie zařízení a volba jazyka.
+V menu na Macu je každé zařízení i s baterií. V Nastavení… je rozlišení (režimy 4:3 vyplní celý iPad), dotyk
+v obraze, Wi-Fi, ostřejší obraz na Retina iPadech, sdílení schránky, spouštění po přihlášení, jazyk a denní kontrolu nové verze (jen se zeptá GitHubu na číslo poslední verze).
 Jazyků je 14; překlady zatím nekontroloval rodilý mluvčí, opravy jsou vítané.
 
-Text zkopírovaný na Macu vložíš na iPadu nebo iPhonu a naopak (Sdílet schránku v menu na Macu).
+Text zkopírovaný na Macu vložíš na iPadu nebo iPhonu a naopak (Sdílet schránku v Nastavení na Macu).
 Appka se otevře v režimu, který jsi použil naposledy.
 
 Když Mac usne, iPad nebo iPhone to napíše a nezamrzne.
