@@ -30,7 +30,7 @@ If you only have AppSync, install `OlderSidecar-iOS6.ipa`, `OlderSidecar-iOS7-10
 
 **Mac:**
 
-1. Download `OlderSidecar-1.12.0.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
+1. Download `OlderSidecar-1.12.1.dmg` from [Releases](https://github.com/Oldersidecar/OlderSidecar/releases),
    open it and drag Older Sidecar to Applications.
 2. The app is not notarized by Apple, so macOS blocks it the first time. Go to
    System Settings > Privacy & Security and click Open Anyway.
@@ -44,7 +44,8 @@ Plug in the iPad or iPhone and open Older Sidecar on it. Pick a mode:
 
 - **Screen only** - the Mac screen. Tap to click, drag, hold for a right click, pinch to zoom.
 - **Second display** (iPad) - the iPad becomes an extra display for the Mac, next to your main one. Drag windows
-  onto it. You can arrange it in System Settings > Displays.
+  onto it. You can arrange it in System Settings > Displays. Its resolution is in the Older Sidecar menu
+  (Second display resolution): bigger means more room and smaller text.
 - **Control Mac** - the iPad or iPhone becomes a trackpad with a row of keys (esc, tab, ⌘⌥⌃⇧, arrows), a keyboard
   and buttons for brightness, Mission Control, Launchpad, music, volume and lock. The Mac screen is not shown.
 - **Dock** - a grid of big buttons. Each one opens an app, a website or a folder on the Mac, or presses a keyboard
