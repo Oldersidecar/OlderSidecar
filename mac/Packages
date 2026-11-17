@@ -1,15 +1,15 @@
 Package: com.oldersidecar
-Version: 1.12.1-1
+Version: 1.12.1-3
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 6.0), firmware (<< 7.0), uikittools
 Conflicts: com.oldersidecar.ios7, com.oldersidecar.ios11
 Replaces: com.oldersidecar.ios7, com.oldersidecar.ios11
-Filename: debs/com.oldersidecar_1.12.1-1_iphoneos-arm.deb
-Size: 1423172
-MD5sum: bf4c55e0880f1e96f2076c85f37a49f8
-SHA1: 5d7c780b48493af99370052d70c8ec1fd5f6e3c0
-SHA256: f4c29a9cc218845c7ff068f056f42030c45c109346c613c5fa6e0f4c4c0fdd89
+Filename: debs/com.oldersidecar_1.12.1-3_iphoneos-arm.deb
+Size: 1432486
+MD5sum: 9202485bbd881cee29fe54596668fe81
+SHA1: 2a3d26c532141a69c4d8f3a2c6e63f3ff4eafc08
+SHA256: acf7612383b7e60bd99532ee41e2df92c8c23cfe2ad67faa2d663da92385b390
 Section: macOS
 Description: Old iPad or iPhone + modern Mac over USB: the Mac's screen on the iPad, a trackpad and remote, or a Dock of big buttons that open apps and press shortcuts. Needs the free Older Sidecar app on the Mac.
 Author: Older Sidecar
@@ -17,17 +17,17 @@ Depiction: http://oldersidecar.surge.sh/
 Name: Older Sidecar
 
 Package: com.oldersidecar.ios11
-Version: 1.12.1-1
+Version: 1.12.1-3
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 11.0), firmware (<< 13.0), uikittools
 Conflicts: com.oldersidecar, com.oldersidecar.ios7
 Replaces: com.oldersidecar, com.oldersidecar.ios7
-Filename: debs/com.oldersidecar.ios11_1.12.1-1_iphoneos-arm.deb
-Size: 205540
-MD5sum: 3416e190b307408b644b3764b4e64ed9
-SHA1: 44cc77cccb70be6cc3b41c4fcbe16b6b17b5a672
-SHA256: 67dcba7e5539b868d69c3e16cb2587334b44cca16ec39ca2336694c220dec764
+Filename: debs/com.oldersidecar.ios11_1.12.1-3_iphoneos-arm.deb
+Size: 206260
+MD5sum: 49524572284966751c9dc0bd362d4c7d
+SHA1: 105276b9b2c39390b914674beaca0b9fb5795aed
+SHA256: b16ae644265b4947feff57531bc5617e2514a5c6959a493842d552144c8810ba
 Section: macOS
 Description: Old iPad or iPhone + modern Mac over USB: the Mac's screen on the iPad, a trackpad and remote, or a Dock of big buttons that open apps and press shortcuts. Needs the free Older Sidecar app on the Mac.
 Author: Older Sidecar
@@ -35,17 +35,17 @@ Depiction: http://oldersidecar.surge.sh/
 Name: Older Sidecar (iOS 11–12)
 
 Package: com.oldersidecar.ios7
-Version: 1.12.1-1
+Version: 1.12.1-3
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 7.0), firmware (<< 11.0), uikittools
 Conflicts: com.oldersidecar, com.oldersidecar.ios11
 Replaces: com.oldersidecar, com.oldersidecar.ios11
-Filename: debs/com.oldersidecar.ios7_1.12.1-1_iphoneos-arm.deb
-Size: 205850
-MD5sum: a2656ff060a7fa79806aa6fcbc7df871
-SHA1: d3da81194685b7911c95b7edfe0c613e3b76da41
-SHA256: 3b62c318f2273249ae65c639b51df96ff8e5e37d97aa8c2a4c48c0da1a29d412
+Filename: debs/com.oldersidecar.ios7_1.12.1-3_iphoneos-arm.deb
+Size: 206454
+MD5sum: bb94ef3331e60c85b3f3ce2d1b741a08
+SHA1: 139ae0e410b4dc5de32a53d0a945bbc62efd3686
+SHA256: 76484edc117000d1735ca173a116700bc9dec25171c3546337a000e3cb784e12
 Section: macOS
 Description: Old iPad or iPhone + modern Mac over USB: the Mac's screen on the iPad, a trackpad and remote, or a Dock of big buttons that open apps and press shortcuts. Needs the free Older Sidecar app on the Mac.
 Author: Older Sidecar

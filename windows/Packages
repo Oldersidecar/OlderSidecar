@@ -1,15 +1,15 @@
 Package: com.oldersidecar.win
-Version: 1.12.1-1
+Version: 1.12.1-3
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 6.0), firmware (<< 7.0), uikittools
 Conflicts: com.oldersidecar.win.ios7, com.oldersidecar.win.ios11
 Replaces: com.oldersidecar.win.ios7, com.oldersidecar.win.ios11
-Filename: debs/com.oldersidecar.win_1.12.1-1_iphoneos-arm.deb
-Size: 1423206
-MD5sum: 19cca34a0959c9139615fdc82c71d1f5
-SHA1: f87e1ee4504d1fb1be2325c5797c02ac2f25f56c
-SHA256: 19dc45ee046399eb834093bd4991242e82ef0baacebae8bdb24f4433c0f231ff
+Filename: debs/com.oldersidecar.win_1.12.1-3_iphoneos-arm.deb
+Size: 1432528
+MD5sum: 977944840a7c9794d79e89174fb9925a
+SHA1: c94a09efe9a993ee86de41537c10d170ad793643
+SHA256: 83d69fb34cffbc9a736e58e7e50940082013976a1e38af4eb623f661d70805fc
 Section: Windows
 Description: Version for Windows PCs (test): the PC's screen on an old iPad or iPhone over USB or Wi-Fi, with touch. Needs the free Older Sidecar app for Windows. For a Mac, install Older Sidecar instead.
 Author: Older Sidecar
@@ -17,17 +17,17 @@ Depiction: http://oldersidecar.surge.sh/
 Name: Older Sidecar (Windows)
 
 Package: com.oldersidecar.win.ios11
-Version: 1.12.1-1
+Version: 1.12.1-3
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 11.0), firmware (<< 13.0), uikittools
 Conflicts: com.oldersidecar.win, com.oldersidecar.win.ios7
 Replaces: com.oldersidecar.win, com.oldersidecar.win.ios7
-Filename: debs/com.oldersidecar.win.ios11_1.12.1-1_iphoneos-arm.deb
-Size: 205550
-MD5sum: 6d41978dba47d434c1e686bbb8568ed5
-SHA1: 7fdc41f482313ef4dd6b6f7397146dfec3b8344e
-SHA256: 7ab318f8bd5e7c38854b7a1435b833102766f154eb3ebfcb796f4a33b3aa35ae
+Filename: debs/com.oldersidecar.win.ios11_1.12.1-3_iphoneos-arm.deb
+Size: 206284
+MD5sum: 730c667744916d81cc7a1ea27b2a0b4f
+SHA1: e0200f0dd36990b4d4d9d87d07ab3f9ed816ad92
+SHA256: 7bc645bcb6ca53e541aaed9ddb24db881a0368810fb2fc5e934418979164078f
 Section: Windows
 Description: Version for Windows PCs (test): the PC's screen on an old iPad or iPhone over USB or Wi-Fi, with touch. Needs the free Older Sidecar app for Windows. For a Mac, install Older Sidecar instead.
 Author: Older Sidecar
@@ -35,17 +35,17 @@ Depiction: http://oldersidecar.surge.sh/
 Name: Older Sidecar (Windows, iOS 11–12)
 
 Package: com.oldersidecar.win.ios7
-Version: 1.12.1-1
+Version: 1.12.1-3
 Architecture: iphoneos-arm
 Maintainer: Older Sidecar
 Depends: firmware (>= 7.0), firmware (<< 11.0), uikittools
 Conflicts: com.oldersidecar.win, com.oldersidecar.win.ios11
 Replaces: com.oldersidecar.win, com.oldersidecar.win.ios11
-Filename: debs/com.oldersidecar.win.ios7_1.12.1-1_iphoneos-arm.deb
-Size: 205858
-MD5sum: a825ef32bed80ee41f58a1048ed31cd6
-SHA1: 4a4fc3add9aadcc6e5852fdf87b5df1eb5be87b3
-SHA256: 7a0a7d725495bc86891cd2aa0372920cfd2b7412cabffb1da3aebc3f7f7a5cb6
+Filename: debs/com.oldersidecar.win.ios7_1.12.1-3_iphoneos-arm.deb
+Size: 206476
+MD5sum: cc63963c950eb47cd2eb024c711ce334
+SHA1: de08add201a51db256a15e9bec3d0380e6bfbf64
+SHA256: d7cc422952b6dad53703e5c5c8c7860c0189b2b3e46bce52eef8cf499f53e210
 Section: Windows
 Description: Version for Windows PCs (test): the PC's screen on an old iPad or iPhone over USB or Wi-Fi, with touch. Needs the free Older Sidecar app for Windows. For a Mac, install Older Sidecar instead.
 Author: Older Sidecar
