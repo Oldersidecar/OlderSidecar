@@ -16,6 +16,17 @@ sloužit jako touchpad a ovladač, nebo jako Dock s velkými tlačítky (trochu 
 <img src="obrazky/6-ios6-to-ios12.png" width="49%" alt="iOS 6 to iOS 12">
 </p>
 
+## Windows
+
+Existuje i verze pro Windows 10 a 11. V Cydii přidej zdroj `https://oldersidecar.github.io/OlderSidecar/windows/` (iOS 7+; na iOS 6 `http://oldersidecar-windows.surge.sh/`) a nainstaluj **Older Sidecar (Windows)**.
+
+<p align="center">
+<img src="obrazky/w1-older-sidecar-for-windows.png" width="49%" alt="Older Sidecar for Windows">
+<img src="obrazky/w2-touch.png" width="49%" alt="Touch">
+<img src="obrazky/w3-usb-or-wifi.png" width="49%" alt="USB or Wi-Fi">
+<img src="obrazky/w4-mac-or-windows.png" width="49%" alt="Mac or Windows">
+</p>
+
 ## Co je potřeba
 
 - Mac s macOS 12.3 nebo novějším (Intel i Apple Silicon)

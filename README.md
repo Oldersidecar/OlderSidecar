@@ -16,6 +16,17 @@ can work as a trackpad and remote or as a Dock of big buttons (a bit like a Stre
 <img src="obrazky/6-ios6-to-ios12.png" width="49%" alt="iOS 6 to iOS 12">
 </p>
 
+## Windows
+
+There is also a version for Windows 10 and 11. Add `https://oldersidecar.github.io/OlderSidecar/windows/` as a source in Cydia (iOS 7+; on iOS 6 use `http://oldersidecar-windows.surge.sh/`) and install **Older Sidecar (Windows)**.
+
+<p align="center">
+<img src="obrazky/w1-older-sidecar-for-windows.png" width="49%" alt="Older Sidecar for Windows">
+<img src="obrazky/w2-touch.png" width="49%" alt="Touch">
+<img src="obrazky/w3-usb-or-wifi.png" width="49%" alt="USB or Wi-Fi">
+<img src="obrazky/w4-mac-or-windows.png" width="49%" alt="Mac or Windows">
+</p>
+
 ## Requirements
 
 - Mac with macOS 12.3 or later (Intel or Apple Silicon)
